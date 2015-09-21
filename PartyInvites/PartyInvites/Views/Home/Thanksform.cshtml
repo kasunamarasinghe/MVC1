@@ -12,8 +12,36 @@
     <title>Thanksform</title>
 </head>
 <body>
+    @{ 
+
+ try {
+     WebMail.SmtpServer = "mtp.gmail.com"; 
+
+ WebMail.SmtpPort = 587; 
+
+ WebMail.EnableSsl = true;
+
+ WebMail.UserName = "kasun.ac.m1@gmail.com";
+
+ WebMail.Password = "kasun123";
+
+ WebMail.From = "kasun.ac.m1@gmail.com";
+
+ WebMail.Send("kasun.ac.m1@gmail.com", "RSVP Notification", 
+
+ Model.Name + " is " + ((Model.WillAttend ?? false) ? "" : "not") 
+
+ + "attending"); 
+
+ } catch (Exception) { 
+
+ @:<b>Sorry - we couldn't send the email to confirm your RSVP.</b> 
+
+ } 
+
+ }
     <div>
-        <h1>Thank you, @Model.Name!</h1> 
+<h1>Thank you, @Model.Name!</h1> 
 
  @if (Model.WillAttend == true) { 
 
