@@ -11,9 +11,9 @@ namespace PartyInvites.Controllers
         //
         // GET: /Home/
 
-        public String Index()
+        public ViewResult Index()
         {
-            return "HelloWorld";
+            return View();
         }
 
     }
